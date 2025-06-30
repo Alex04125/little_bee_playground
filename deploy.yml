@@ -1,4 +1,4 @@
-name: Deploy Eleventy to GitHub Pages
+name: Deploy Eleventy site to GitHub Pages
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -18,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
+      - name: Build site with Eleventy
         run: npx @11ty/eleventy
 
       - name: Deploy to GitHub Pages
