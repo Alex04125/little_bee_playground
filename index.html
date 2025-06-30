@@ -98,7 +98,7 @@
                 </h1>
             </a>
     
-            <!-- Right: Navigation Links -->
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8 text-base nav-link">
                 <a href="index.html"
                     class="relative text-white hover:text-[var(--bee-yellow)] transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[var(--bee-yellow)] hover:after:w-full after:transition-all after:duration-300">
@@ -113,17 +113,30 @@
                     КОНТАКТИ
                 </a>
             </nav>
+    
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-white text-3xl focus:outline-none">
+                ☰
+            </button>
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="md:hidden bg-[var(--bee-sage)] px-6 py-4 space-y-4 hidden nav-link">
+            <a href="index.html" class="block text-white hover:text-[var(--bee-yellow)]">НАЧАЛО</a>
+            <a href="gallery.html" class="block text-white hover:text-[var(--bee-yellow)]">ГАЛЕРИЯ</a>
+            <a href="contacts.html" class="block text-white hover:text-[var(--bee-yellow)]">КОНТАКТИ</a>
         </div>
     </header>
 
 
+
     <!-- Welcome Section -->
     <section id="welcome" class="relative w-full bg-[var(--bee-bg)] py-20 overflow-hidden" data-aos="fade-up">
-        <div
+        <!-- <div
             class="absolute top-0 left-0 text-[80px] opacity-90 z-0 select-none pointer-events-none rotate-[15deg] leading-none">
-            🌞</div>
+            🌞</div> -->
         <div class="max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-10 relative z-10">
-            <div class="w-full lg:w-2/5 text-left space-y-6" data-aos="fade-right">
+            <div class="w-full lg:w-2/5 text-left space-y-6" data-aos="fasde-right">
                 <h2 class="text-4xl font-bold text-[var(--bee-charcoal)] club-name">Добре дошли в детски клуб „Малката
                     пчеличка“!</h2>
                 <p class="text-lg text-[var(--bee-charcoal)] leading-relaxed nav-link">
@@ -262,6 +275,14 @@
             }
             lastScrollY = currentScroll;
         });
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            });
+
+        
     </script>
 
 </body>
