@@ -1,0 +1,167 @@
+---
+permalink: "gallery.html"
+---
+
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Галерия – Малката пчеличка</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka:wght@500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --bee-yellow: #E4C45B;
+            --bee-charcoal: #2C2B28;
+            --bee-sage: #8A9C84;
+            --bee-bg: #FFF9E5;
+        }
+
+        .club-name {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .nav-link {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .buzz-left,
+        .buzz-right {
+            animation-duration: 3s;
+            animation-fill-mode: both;
+        }
+
+        .buzz-left.animate {
+            animation-name: buzz-left;
+        }
+
+        .buzz-right.animate {
+            animation-name: buzz-right;
+        }
+
+        @keyframes buzz-left {
+            0% {
+                transform: translateX(-150%) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) rotate(10deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes buzz-right {
+            0% {
+                transform: translateX(150%) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) rotate(-10deg);
+                opacity: 1;
+            }
+        }
+
+        .bee-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+
+<body class="text-[var(--bee-charcoal)] bg-[var(--bee-bg)]">
+
+    <!-- Header -->
+    {% include "navbar.html" %}
+
+    <!-- Gallery Hero -->
+    <section class="relative w-full bg-no-repeat bg-top sm:bg-center bg-contain sm:bg-cover"
+        style="background-image: url('img/gpt_img.png');">
+        <div class="bg-[var(--bee-bg)]/30 w-full h-full">
+            <div class="text-center py-32">
+                <h1 class="text-5xl font-bold club-name text-[var(--bee-charcoal)]" data-aos="zoom-in">
+                    Галерия
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 pb-20 space-y-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="zoom-in-up">
+                    <img src="img/GetVSValue.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 1" />
+                    <img src="img/club4e.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 2" />
+                    <img src="img/CreateInstance.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 3" />
+                    <img src="img/littlbe bee.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 4" />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="zoom-in-up">
+                    <img src="img/Planning.PNG" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 5" />
+                    <img src="img/tno.png" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 6" />
+                    <img src="img/zanas.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 7" />
+                    <img src="img/about.jpg" class="w-full h-64 object-cover rounded-xl shadow" alt="Снимка 8" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include "footer.html" %}
+
+    <!-- JavaScript -->
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Bee animation
+        const beeAnimation = document.getElementById("beeAnimation");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const leftBee = beeAnimation.querySelector('.buzz-left');
+                const rightBee = beeAnimation.querySelector('.buzz-right');
+                if (entry.isIntersecting) {
+                    leftBee.classList.remove("animate");
+                    rightBee.classList.remove("animate");
+                    void leftBee.offsetWidth;
+                    void rightBee.offsetWidth;
+                    leftBee.classList.add("animate");
+                    rightBee.classList.add("animate");
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(beeAnimation);
+
+        // Navbar scroll hide
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById("mainHeader");
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScrollY && currentScroll > 50) {
+                header.classList.add("-translate-y-full");
+            } else {
+                header.classList.remove("-translate-y-full");
+            }
+            lastScrollY = currentScroll;
+        });
+    </script>
+
+</body>
+
+</html>

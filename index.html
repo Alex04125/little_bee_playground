@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Детски клуб „Малката пчеличка“</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka:wght@500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --bee-yellow: #E4C45B;
+            --bee-charcoal: #2C2B28;
+            --bee-sage: #8A9C84;
+            --bee-bg: #FFF9E5;
+        }
+
+        .club-name {
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .nav-link {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .buzz-left,
+        .buzz-right {
+            animation-duration: 3s;
+            animation-fill-mode: both;
+        }
+
+        .buzz-left.animate {
+            animation-name: buzz-left;
+        }
+
+        .buzz-right.animate {
+            animation-name: buzz-right;
+        }
+
+        @keyframes buzz-left {
+            0% {
+                transform: translateX(-150%) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) rotate(10deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes buzz-right {
+            0% {
+                transform: translateX(150%) rotate(0deg);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(0) rotate(-10deg);
+                opacity: 1;
+            }
+        }
+
+        .bee-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            transition: opacity 1s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-[var(--bee-bg)] text-[var(--bee-charcoal)]">
+    {% include "navbar.html" %}
+
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="relative w-full bg-[var(--bee-bg)] py-20 overflow-hidden" data-aos="fade-up">
+        <div class="absolute -top-0 -left-0 text-8xl opacity-90 z-0 select-none pointer-events-none rotate-[15deg]">🌞
+        </div>
+        <div class="max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-10 relative z-10">
+            <div class="w-full lg:w-2/5 text-left space-y-6" data-aos="fade-right">
+                <h2 class="text-4xl font-bold text-[var(--bee-charcoal)] club-name">Добре дошли в детски клуб „Малката
+                    пчеличка“!</h2>
+                <p class="text-lg text-[var(--bee-charcoal)] leading-relaxed nav-link">
+                    Каним всички деца на весели игри, творчески занимания и нови приятелства в уютна, цветна и безопасна
+                    среда.
+                </p>
+            </div>
+            <div class="w-full lg:w-3/5" data-aos="zoom-in">
+                <div
+                    class="w-full h-[300px] lg:h-[400px] overflow-hidden rounded-2xl shadow-xl transform transition">
+                    <img src="img/club4e.jpg" alt="Игрална зала" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="w-full bg-white py-20" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-10">
+            <div class="w-full lg:w-2/5 text-left space-y-6" data-aos="fade-left">
+                <h2 class="text-3xl font-bold text-[var(--bee-charcoal)] club-name">За нас</h2>
+                <p class="text-lg text-[var(--bee-charcoal)] leading-relaxed nav-link">
+                    Клуб „Малката пчеличка“ е пространство, създадено с грижа и любов за децата – място, където всяко
+                    дете може да
+                    учи, играе и развива своите умения чрез ролеви игри, въображение и споделено време.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="gallery.html"
+                        class="bg-[var(--bee-yellow)] text-[var(--bee-charcoal)] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition transform hover:scale-105">Галерия</a>
+                    <a href="contacts.html"
+                        class="bg-[var(--bee-yellow)] text-[var(--bee-charcoal)] px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition transform hover:scale-105">Контакти</a>
+                </div>
+            </div>
+            <div class="w-full lg:w-3/5" data-aos="zoom-in-up">
+                <div
+                    class="w-full h-[300px] lg:h-[400px] overflow-hidden rounded-2xl shadow-xl transform transition">
+                    <img src="img/zanas.jpg" alt="За нас" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    {% include "footer.html" %}
+
+
+    <!-- JavaScript -->
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Bee animation
+        const beeAnimation = document.getElementById("beeAnimation");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const leftBee = beeAnimation.querySelector('.buzz-left');
+                const rightBee = beeAnimation.querySelector('.buzz-right');
+                if (entry.isIntersecting) {
+                    leftBee.classList.remove("animate");
+                    rightBee.classList.remove("animate");
+                    void leftBee.offsetWidth;
+                    void rightBee.offsetWidth;
+                    leftBee.classList.add("animate");
+                    rightBee.classList.add("animate");
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(beeAnimation);
+
+        // Navbar scroll hide
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById("mainHeader");
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScrollY && currentScroll > 50) {
+                header.classList.add("-translate-y-full");
+            } else {
+                header.classList.remove("-translate-y-full");
+            }
+            lastScrollY = currentScroll;
+        });
+    </script>
+
+</body>
+
+</html>

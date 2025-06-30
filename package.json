@@ -1,0 +1,24 @@
+{
+  "name": "little_bee_playground",
+  "version": "1.0.0",
+  "description": "This is a website for the little bee playground.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "build": "npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex04125/little_bee_playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex04125/little_bee_playground/issues"
+  },
+  "homepage": "https://github.com/Alex04125/little_bee_playground#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
