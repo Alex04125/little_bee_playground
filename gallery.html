@@ -93,7 +93,34 @@ permalink: "gallery.html"
 <body class="text-[var(--bee-charcoal)] bg-[var(--bee-bg)]">
 
     <!-- Header -->
-    {% include "navbar.html" %}
+    <header id="mainHeader"
+        class="bg-[var(--bee-sage)] sticky top-0 z-50 shadow-md transition-transform duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Left: Logo and Name (Clickable) -->
+            <a href="index.html" class="flex items-center space-x-4 hover:opacity-90 transition-opacity duration-200">
+                <img src="img/littlbe bee.jpg" alt="Little Bee Logo" class="h-10 w-10 object-contain rounded-full" />
+                <h1 class="text-xl text-white font-bold club-name tracking-wide">
+                    Детски клуб „Малката пчеличка“
+                </h1>
+            </a>
+    
+            <!-- Right: Navigation Links -->
+            <nav class="hidden md:flex space-x-8 text-base nav-link">
+                <a href="index.html"
+                    class="relative text-white hover:text-[var(--bee-yellow)] transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[var(--bee-yellow)] hover:after:w-full after:transition-all after:duration-300">
+                    НАЧАЛО
+                </a>
+                <a href="gallery.html"
+                    class="relative text-white hover:text-[var(--bee-yellow)] transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[var(--bee-yellow)] hover:after:w-full after:transition-all after:duration-300">
+                    ГАЛЕРИЯ
+                </a>
+                <a href="contacts.html"
+                    class="relative text-white hover:text-[var(--bee-yellow)] transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[var(--bee-yellow)] hover:after:w-full after:transition-all after:duration-300">
+                    КОНТАКТИ
+                </a>
+            </nav>
+        </div>
+    </header>
 
     <!-- Gallery Hero -->
     <section class="relative w-full bg-no-repeat bg-top sm:bg-center bg-contain sm:bg-cover"
@@ -124,7 +151,64 @@ permalink: "gallery.html"
     </section>
 
     <!-- Footer -->
-    {% include "footer.html" %}
+    <footer class="bg-[var(--bee-sage)] text-white py-12 mt-12" id="contact">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 items-start" data-aos="fade-up">
+            <!-- Left Column -->
+            <div class="flex flex-col space-y-6">
+                <img src="img/littlbe bee.jpg" alt="Клуб Цветенца" class="h-20 w-20 object-contain" />
+                <div class="space-y-2">
+                    <h3 class="text-xl font-bold">Последвайте ни</h3>
+                    <div class="flex space-x-4">
+                        <!-- Facebook -->
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+                            class="hover:scale-110 transform transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12.073C22 6.505 17.523 2 12 2S2 6.505 2 12.073c0 5.013 3.657 9.162 8.438 9.878v-6.99H7.898v-2.888h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.47h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.888h-2.33v6.99C18.343 21.235 22 17.086 22 12.073z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"
+                            class="hover:scale-110 transform transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm-4.25 2.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5Zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Center Column -->
+            <div class="flex flex-col items-center justify-center text-center text-sm leading-relaxed nav-link h-full">
+                <div id="beeAnimation" class="bee-animation space-x-4 select-none mb-2">
+                    <span class="buzz-left">🐝</span>
+                    <span class="text-5xl">🍯</span>
+                    <span class="buzz-right">🐝</span>
+                </div>
+                <p>„Малката пчеличка“ е уютно и вдъхновяващо място, където децата играят, учат и растат с усмивка.</p>
+            </div>
+    
+            <!-- Right Column -->
+            <div class="flex flex-col items-end space-y-4 text-sm text-right">
+                <h3 class="text-xl font-bold">Контакти</h3>
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg w-6">🍯</span>
+                    <span>ул. Примерна 123, София</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg w-6">✉️</span>
+                    <span>info@example.com</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg w-6">📞</span>
+                    <span>+359 88 888 8888</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript -->
     <script>
